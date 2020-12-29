@@ -6,10 +6,13 @@ services:
     container_name: six__server
     working_dir: /usr/src/app
     ports:
-      - 8080:4000
+      - ${SERVER_EXPOSED_PORT}:${SERVER_HTTP_PORT}
     volumes:
       - ./server:/usr/src/app
     environment:
+      SERVER_HTTP_PORT: ${SERVER_HTTP_PORT}
+      SERVER_ALLOWED_ORIGINS: ${SERVER_ALLOWED_ORIGINS}
+      SERVER_SESSION_SECRET: ${SERVER_SESSION_SECRET}      
       POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
       POSTGRES_USER: ${POSTGRES_USER}
       POSTGRES_DB: ${POSTGRES_DB}
@@ -42,6 +45,8 @@ services:
       - ./webclient:/usr/src/app
     networks:
       - reverse-proxy
+    environment:
+      REACT_APP_SERVER_PORT: ${SERVER_EXPOSED_PORT}
     entrypoint: yarn start
 
 networks:
