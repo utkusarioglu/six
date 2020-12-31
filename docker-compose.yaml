@@ -1,6 +1,23 @@
 version: '3.8'
 
 services:
+  reverse-proxy:
+    image: nginx:alpine
+    container_name: six__reverse-proxy
+    volumes:
+      - ./reverse-proxy/nginx.conf:/etc/nginx/nginx.conf
+      - ./reverse-proxy/entrypoint.sh:/entrypoint.sh
+      - ./reverse-proxy/tls/private:/etc/ssl/private/
+      - ./reverse-proxy/tls/certs:/etc/ssl/certs
+    ports:
+      - 80:80
+      - 443:443
+    restart: always
+    networks:
+      - reverse-proxy
+    entrypoint: sh /entrypoint.sh
+
+
   server:
     image: node
     container_name: six__server
@@ -22,6 +39,7 @@ services:
       - backend
     depends_on:
       - postgres
+      - reverse-proxy
     entrypoint: yarn start:dev
 
   postgres:
@@ -43,7 +61,7 @@ services:
     working_dir: /usr/src/app
     stdin_open: true
     ports:
-      - 80:3000
+      - 3000:3000
     volumes:
       - ./webclient:/usr/src/app
     networks:
