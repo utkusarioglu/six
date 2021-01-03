@@ -44,6 +44,7 @@ services:
     depends_on:
       - postgres
       - reverse-proxy
+      - redis
     entrypoint: yarn start:dev
 
   postgres:
@@ -58,6 +59,23 @@ services:
       POSTGRES_DB: ${POSTGRES_DB}
     networks:
       - backend
+
+  redis:
+    image: redis:alpine
+    container_name: six__redis
+    # ports: 
+    #   - 6379:6379
+    # privileged: true
+    restart: unless-stopped
+    hostname: redis
+    networks:
+      - backend
+    volumes:
+      - ./redis/mounts/redis.conf:/usr/local/etc/redis/redis.conf
+      - ./redis/mounts/entrypoint.sh:/scripts/entrypoint.sh
+      - redis:/data
+    command: sh -c "/scripts/entrypoint.sh"
+
 
   webclient:
     image: node:alpine
@@ -85,3 +103,4 @@ networks:
 
 volumes:
   postgres:
+  redis:
