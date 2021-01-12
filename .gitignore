@@ -4,3 +4,6 @@
 /data
 /reverse-proxy/tls
 node_modules
+
+# Contains mock files pretending to be user-content 
+/user-content
