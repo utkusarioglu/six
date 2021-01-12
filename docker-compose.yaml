@@ -9,6 +9,7 @@ services:
       - ./reverse-proxy/entrypoint.sh:/entrypoint.sh
       - ./reverse-proxy/tls/private:/etc/ssl/private/
       - ./reverse-proxy/tls/certs:/etc/ssl/certs
+      - ./user-content:/www/data/user-content
     ports:
       - 80:80
       - 443:443
