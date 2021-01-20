@@ -4,3 +4,6 @@
 [submodule "webclient"]
 	path = webclient
 	url = ./webclient
+[submodule "public-api"]
+	path = public-api
+	url = ./public-api
