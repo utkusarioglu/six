@@ -75,8 +75,8 @@ services:
     networks:
       - backend
     volumes:
-      - ./redis/mounts/redis.conf:/usr/local/etc/redis/redis.conf
-      - ./redis/mounts/entrypoint.sh:/scripts/entrypoint.sh
+      - ./six__redis/mounts/redis.conf:/usr/local/etc/redis/redis.conf
+      - ./six__redis/mounts/entrypoint.sh:/scripts/entrypoint.sh
       - redis:/data
     command: sh -c "/scripts/entrypoint.sh"
 
