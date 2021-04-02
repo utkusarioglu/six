@@ -1,6 +1,6 @@
-[submodule "server"]
-	path = server
-	url = ./server
+[submodule "six__server"]
+	path = six__server
+	url = ./six__server
 [submodule "webclient"]
 	path = webclient
 	url = ./webclient

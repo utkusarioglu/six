@@ -25,7 +25,7 @@ services:
     ports:
       - ${SERVER_EXPOSED_PORT}:${SERVER_HTTP_PORT}
     volumes:
-      - ./server:/usr/src/app
+      - ./six__server:/usr/src/app
     environment:
       SERVER_HTTP_PORT: ${SERVER_HTTP_PORT}
       SERVER_ALLOWED_ORIGINS: ${SERVER_ALLOWED_ORIGINS}
