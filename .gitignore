@@ -6,7 +6,7 @@
 node_modules
 
 # Contains mock files pretending to be user-content 
-/user-content
+/six__user-content
 
 # Even though it's not the correct practice, for my sanity I will be ignoring the submodule changes
 /six__public-api
