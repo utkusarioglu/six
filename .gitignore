@@ -9,6 +9,6 @@ node_modules
 /user-content
 
 # Even though it's not the correct practice, for my sanity I will be ignoring the submodule changes
-/public-api
+/six__public-api
 /server
 /webclient
