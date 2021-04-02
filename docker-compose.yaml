@@ -5,10 +5,10 @@ services:
     image: nginx:alpine
     container_name: six__reverse-proxy
     volumes:
-      - ./reverse-proxy/nginx.conf:/etc/nginx/nginx.conf
-      - ./reverse-proxy/entrypoint.sh:/entrypoint.sh
-      - ./reverse-proxy/tls/private:/etc/ssl/private/
-      - ./reverse-proxy/tls/certs:/etc/ssl/certs
+      - ./six__reverse-proxy/nginx.conf:/etc/nginx/nginx.conf
+      - ./six__reverse-proxy/entrypoint.sh:/entrypoint.sh
+      - ./six__reverse-proxy/tls/private:/etc/ssl/private/
+      - ./six__reverse-proxy/tls/certs:/etc/ssl/certs
       - ./user-content:/www/data/user-content
     ports:
       - 80:80
