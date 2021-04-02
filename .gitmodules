@@ -1,9 +1,9 @@
 [submodule "six__server"]
 	path = six__server
-	url = ./six__server
+	url = https://github.com/utkusarioglu/six__server.git
 [submodule "six__webclient"]
 	path = six__webclient
-	url = ./six__webclient
+	url = https://github.com/utkusarioglu/six__webclient.git
 [submodule "six__public-api"]
 	path = six__public-api
-	url = ./six__public-api
+	url = https://github.com/utkusarioglu/six__public-api.git
