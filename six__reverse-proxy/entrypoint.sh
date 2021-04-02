@@ -1,5 +1,5 @@
-KEY="/etc/ssl/private/u-berlioz.key"
-CERT="/etc/ssl/certs/u-berlioz.crt"
+KEY="/tls/u-berlioz.key"
+CERT="/tls/u-berlioz.crt"
 if [ ! -f "$KEY" ] && [ ! -f "$CERT" ];
 then
 apk add openssl;
@@ -12,8 +12,8 @@ openssl \
   -subj "/C=TR/ST=Ordu/O=utkusarioglu./CN=u-berlioz.dev" \
   -addext "subjectAltName=DNS:u-berlioz.dev" \
   -newkey rsa:2048 \
-  -keyout /etc/ssl/private/u-berlioz.key \
-  -out /etc/ssl/certs/u-berlioz.crt;
+  -keyout /tls/u-berlioz.key \
+  -out /tls/u-berlioz.crt;
 fi
 
 # sleep 10;
