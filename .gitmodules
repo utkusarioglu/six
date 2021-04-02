@@ -1,9 +1,9 @@
 [submodule "six__server"]
 	path = six__server
 	url = ./six__server
-[submodule "webclient"]
-	path = webclient
-	url = ./webclient
+[submodule "six__webclient"]
+	path = six__webclient
+	url = ./six__webclient
 [submodule "six__public-api"]
 	path = six__public-api
 	url = ./six__public-api
